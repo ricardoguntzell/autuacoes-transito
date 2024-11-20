@@ -1,10 +1,7 @@
 package br.com.guntz.transito.api.domain.model;
 
 import br.com.guntz.transito.api.model.input.ProprietarioInputModel;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.beans.BeanUtils;
 
@@ -22,6 +19,7 @@ public class Proprietario {
 
     private String nome;
 
+    @Column(unique = true)
     private String email;
 
     private String telefone;

@@ -1,5 +1,6 @@
 package br.com.guntz.transito.api.domain.service;
 
+import br.com.guntz.transito.api.domain.exception.NegocioException;
 import br.com.guntz.transito.api.domain.model.Proprietario;
 import br.com.guntz.transito.api.domain.repository.ProprietarioRepository;
 import jakarta.transaction.Transactional;
@@ -14,8 +15,13 @@ public class ProprietarioService {
 
     @Transactional
     public Proprietario salvar(Proprietario proprietario) {
+        boolean emailEmUso = proprietarioRepository.findByEmail(proprietario.getEmail())
+                .filter(p -> !p.equals(proprietario))
+                .isPresent();
 
-
+        if (emailEmUso){
+            throw new NegocioException("Email já está em uso por outro proprietário");
+        }
 
         return proprietarioRepository.save(proprietario);
     }

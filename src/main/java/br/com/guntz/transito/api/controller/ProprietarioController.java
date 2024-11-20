@@ -5,7 +5,9 @@ import br.com.guntz.transito.api.domain.repository.ProprietarioRepository;
 import br.com.guntz.transito.api.domain.service.ProprietarioService;
 import br.com.guntz.transito.api.model.input.ProprietarioInputModel;
 import br.com.guntz.transito.api.model.output.ProprietarioResumoModel;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,7 +36,8 @@ public class ProprietarioController {
     }
 
     @PostMapping
-    public ProprietarioResumoModel salvar(@RequestBody ProprietarioInputModel proprietarioInputModel) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public ProprietarioResumoModel salvar(@Valid @RequestBody ProprietarioInputModel proprietarioInputModel) {
         Proprietario proprietario = new Proprietario(proprietarioInputModel);
 
         return new ProprietarioResumoModel(proprietarioService.salvar(proprietario));
