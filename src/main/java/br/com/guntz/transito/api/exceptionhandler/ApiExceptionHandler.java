@@ -1,6 +1,7 @@
 package br.com.guntz.transito.api.exceptionhandler;
 
 import br.com.guntz.transito.api.domain.exception.NegocioException;
+import br.com.guntz.transito.api.domain.exception.RecursoNaoEncontradoException;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.parsing.Problem;
 import org.springframework.context.MessageSource;
@@ -52,5 +53,15 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
         return problemDetail;
     }
+
+    @ExceptionHandler(RecursoNaoEncontradoException.class)
+    public ProblemDetail handleRecursoNaoEncontrado(RecursoNaoEncontradoException ex) {
+        ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.NOT_FOUND);
+        problemDetail.setTitle(ex.getMessage());
+        problemDetail.setType(URI.create("https://guntztransito.com/erros/recurso-nao-encontrado"));
+
+        return problemDetail;
+    }
+
 
 }

@@ -1,6 +1,7 @@
 package br.com.guntz.transito.api.domain.service;
 
 import br.com.guntz.transito.api.domain.exception.NegocioException;
+import br.com.guntz.transito.api.domain.exception.RecursoNaoEncontradoException;
 import br.com.guntz.transito.api.domain.model.Proprietario;
 import br.com.guntz.transito.api.domain.repository.ProprietarioRepository;
 import jakarta.transaction.Transactional;
@@ -26,4 +27,20 @@ public class ProprietarioService {
         return proprietarioRepository.save(proprietario);
     }
 
+    @Transactional
+    public void ativar(Long proprietarioId) {
+        Proprietario proprietario = buscarPorId(proprietarioId);
+        proprietario.ativar();
+    }
+
+    @Transactional
+    public void inativar(Long proprietarioId) {
+        Proprietario proprietario = buscarPorId(proprietarioId);
+        proprietario.inativar();
+    }
+
+    public Proprietario buscarPorId(Long proprietarioId) {
+        return proprietarioRepository.findById(proprietarioId)
+                .orElseThrow(RecursoNaoEncontradoException::new);
+    }
 }

@@ -43,5 +43,25 @@ public class ProprietarioController {
         return new ProprietarioResumoModel(proprietarioService.salvar(proprietario));
     }
 
+    @PutMapping("/{proprietarioId}")
+    public ProprietarioResumoModel atualizar(@PathVariable Long proprietarioId,
+                                             @Valid @RequestBody ProprietarioInputModel proprietarioInputModel) {
+        proprietarioService.buscarPorId(proprietarioId);
+        Proprietario proprietarioAtualizado = new Proprietario(proprietarioInputModel);
+        proprietarioAtualizado.setId(proprietarioId);
 
+        return new ProprietarioResumoModel(proprietarioService.salvar(proprietarioAtualizado));
+    }
+
+    @PutMapping("/{proprietarioId}/ativar")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void ativar(@PathVariable Long proprietarioId){
+        proprietarioService.ativar(proprietarioId);
+    }
+
+    @DeleteMapping("/{proprietarioId}/ativar")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void inativar(@PathVariable Long proprietarioId){
+        proprietarioService.inativar(proprietarioId);
+    }
 }

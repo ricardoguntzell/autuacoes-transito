@@ -1,3 +1,3 @@
-INSERT INTO tb_proprietario (nome, email, telefone) VALUES ('Neelix', 'neelix@offbeat.com', '11988887777')
-INSERT INTO tb_proprietario (nome, email, telefone) VALUES ('Phaxe', 'phaxe@offbeat.com', '11988886666')
-INSERT INTO tb_proprietario (nome, email, telefone) VALUES ('Ranji', 'ranji@offbeat.com', '11988885555')
+INSERT INTO tb_proprietario (nome, email, telefone, situacao) VALUES ('Neelix', 'neelix@offbeat.com', '11988887777', 'ATIVO')
+INSERT INTO tb_proprietario (nome, email, telefone, situacao) VALUES ('Phaxe', 'phaxe@offbeat.com', '11988886666', 'ATIVO')
+INSERT INTO tb_proprietario (nome, email, telefone, situacao) VALUES ('Ranji', 'ranji@offbeat.com', '11988885555', 'ATIVO')
