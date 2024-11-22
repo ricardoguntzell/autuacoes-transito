@@ -53,13 +53,13 @@ public class ProprietarioController {
         return new ProprietarioResumoModel(proprietarioService.salvar(proprietarioAtualizado));
     }
 
-    @PutMapping("/{proprietarioId}/ativar")
+    @PutMapping("/{proprietarioId}/ativacao")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void ativar(@PathVariable Long proprietarioId){
         proprietarioService.ativar(proprietarioId);
     }
 
-    @DeleteMapping("/{proprietarioId}/ativar")
+    @DeleteMapping("/{proprietarioId}/ativacao")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void inativar(@PathVariable Long proprietarioId){
         proprietarioService.inativar(proprietarioId);
