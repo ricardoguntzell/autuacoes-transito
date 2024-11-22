@@ -28,7 +28,7 @@ public class Proprietario {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 10)
-    private Situacao situacao = Situacao.ATIVO;
+    private SituacaoProprietario situacao = SituacaoProprietario.ATIVO;
 
     public Proprietario(ProprietarioInputModel proprietarioInputModel) {
         BeanUtils.copyProperties(proprietarioInputModel, this);
@@ -39,7 +39,7 @@ public class Proprietario {
             throw new NegocioException("Proprietário já se encontra ativo");
         }
 
-        setSituacao(Situacao.ATIVO);
+        setSituacao(SituacaoProprietario.ATIVO);
     }
 
     public void inativar() {
@@ -47,11 +47,11 @@ public class Proprietario {
             throw new NegocioException("Proprietário já se encontra inativo");
         }
 
-        setSituacao(Situacao.INATIVO);
+        setSituacao(SituacaoProprietario.INATIVO);
     }
 
     private boolean estaAtivo() {
-        return getSituacao().equals(Situacao.ATIVO);
+        return getSituacao().equals(SituacaoProprietario.ATIVO);
     }
 
     private boolean estaInativo() {

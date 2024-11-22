@@ -1,7 +1,7 @@
 package br.com.guntz.transito.api.model.output;
 
 import br.com.guntz.transito.api.domain.model.Proprietario;
-import br.com.guntz.transito.api.domain.model.Situacao;
+import br.com.guntz.transito.api.domain.model.SituacaoProprietario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,7 +16,7 @@ public class ProprietarioResumoModel {
 
     private String nome;
 
-    private Situacao situacao;
+    private SituacaoProprietario situacao;
 
     public ProprietarioResumoModel(Proprietario proprietario) {
         BeanUtils.copyProperties(proprietario, this);
