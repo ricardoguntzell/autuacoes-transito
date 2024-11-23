@@ -1,6 +1,5 @@
 package br.com.guntz.transito.api.domain.model;
 
-
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -8,9 +7,9 @@ import lombok.Setter;
 
 import java.time.OffsetDateTime;
 
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Getter
 @Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity(name = "tb_veiculo")
 public class Veiculo {
 
@@ -21,6 +20,9 @@ public class Veiculo {
 
     @ManyToOne
     private Proprietario proprietario;
+
+    @Column(length = 150)
+    private String marca;
 
     @Column(length = 150)
     private String modelo;
