@@ -1,14 +1,15 @@
 package br.com.guntz.transito.api.domain.model;
 
 import br.com.guntz.transito.api.domain.exception.NegocioException;
+import br.com.guntz.transito.api.model.output.ProprietarioIdModel;
 import br.com.guntz.transito.api.model.input.ProprietarioInputModel;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.beans.BeanUtils;
 
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @Entity(name = "tb_proprietario")
 public class Proprietario {
@@ -32,6 +33,10 @@ public class Proprietario {
 
     public Proprietario(ProprietarioInputModel proprietarioInputModel) {
         BeanUtils.copyProperties(proprietarioInputModel, this);
+    }
+
+    public Proprietario(ProprietarioIdModel proprietarioId) {
+        BeanUtils.copyProperties(proprietarioId, this);
     }
 
     public void ativar() {

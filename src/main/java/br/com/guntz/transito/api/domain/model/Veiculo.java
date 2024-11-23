@@ -1,15 +1,19 @@
 package br.com.guntz.transito.api.domain.model;
 
+import br.com.guntz.transito.api.model.input.VeiculoInputModel;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.beans.BeanUtils;
 
 import java.time.OffsetDateTime;
 
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@NoArgsConstructor
 @Entity(name = "tb_veiculo")
 public class Veiculo {
 
@@ -38,4 +42,8 @@ public class Veiculo {
 
     private OffsetDateTime dataApreensao;
 
+    public Veiculo(VeiculoInputModel veiculoInputModel) {
+        BeanUtils.copyProperties(veiculoInputModel, this);
+        proprietario = new Proprietario(veiculoInputModel.getProprietario());
+    }
 }

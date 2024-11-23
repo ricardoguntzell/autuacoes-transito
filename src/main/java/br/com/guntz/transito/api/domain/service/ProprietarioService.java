@@ -43,4 +43,10 @@ public class ProprietarioService {
         return proprietarioRepository.findById(proprietarioId)
                 .orElseThrow(RecursoNaoEncontradoException::new);
     }
+
+    public Proprietario buscarProprietarioVeiculoPorId(Long proprietarioId) {
+        return proprietarioRepository.findById(proprietarioId)
+                .orElseThrow(() -> new NegocioException("Proprietário inexistente para esse Id"));
+    }
+
 }
