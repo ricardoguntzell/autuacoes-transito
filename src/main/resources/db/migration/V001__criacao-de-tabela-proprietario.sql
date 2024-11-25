@@ -1,10 +1,10 @@
 CREATE TABLE tb_proprietario (
-    id BIGINT AUTO_INCREMENT,
+    id BIGINT NOT NULL AUTO_INCREMENT,
 
-    nome VARCHAR(255),
-    email VARCHAR(150) UNIQUE,
-    telefone VARCHAR(20),
-    situacao ENUM('ATIVO', 'INATIVO'),
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    telefone VARCHAR(20) NOT NULL ,
+    situacao ENUM('ATIVO', 'INATIVO') NOT NULL,
 
     PRIMARY KEY (id)
 );
