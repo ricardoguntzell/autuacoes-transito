@@ -1,6 +1,7 @@
 package br.com.guntz.transito.api.model.output;
 
 import br.com.guntz.transito.api.domain.model.Autuacao;
+import br.com.guntz.transito.api.domain.model.TipoMulta;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.BeanUtils;
@@ -17,6 +18,8 @@ public class AutuacaoModel {
     private String descricao;
 
     private BigDecimal valorMulta;
+
+    private TipoMulta tipoMulta;
 
     private OffsetDateTime dataOcorrencia;
 

@@ -1,7 +1,6 @@
 package br.com.guntz.transito.api.domain.model;
 
 import br.com.guntz.transito.api.model.input.AutuacaoInputModel;
-import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -33,6 +32,10 @@ public class Autuacao {
 
     @Column(columnDefinition = "DECIMAL(10, 2)")
     private BigDecimal valorMulta = new BigDecimal(BigInteger.ZERO);
+
+    @Column(length = 20)
+    @Enumerated(EnumType.STRING)
+    private TipoMulta tipoMulta;
 
     private OffsetDateTime dataOcorrencia;
 

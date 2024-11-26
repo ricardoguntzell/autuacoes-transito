@@ -1,6 +1,8 @@
 package br.com.guntz.transito.api.model.input;
 
-import br.com.guntz.transito.api.model.output.VeiculoIdModel;
+import br.com.guntz.transito.api.domain.model.TipoMulta;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,9 +12,12 @@ import java.math.BigDecimal;
 @Setter
 public class AutuacaoInputModel {
 
-    private VeiculoIdModel veiculo;
-
+    @NotBlank
     private String descricao;
 
+    @NotNull
+    private TipoMulta tipoMulta;
+
+    @NotNull
     private BigDecimal valorMulta;
 }

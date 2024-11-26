@@ -1,22 +1,22 @@
 package br.com.guntz.transito.api.domain.service;
 
 import br.com.guntz.transito.api.domain.model.Autuacao;
-import br.com.guntz.transito.api.domain.repository.AutuacaoRepository;
+import br.com.guntz.transito.api.domain.model.Veiculo;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.time.OffsetDateTime;
 
 @AllArgsConstructor
 @Service
 public class AutuacaoService {
 
-    private AutuacaoRepository autuacaoRepository;
+    private VeiculoService veiculoService;
 
-    public Autuacao salvar(Autuacao novaAutuacao) {
-        novaAutuacao.setDataOcorrencia(OffsetDateTime.now());
+    @Transactional
+    public Autuacao salvar(Long veiculoId, Autuacao novaAutuacao) {
+        Veiculo veiculo = veiculoService.buscarVeiculoAutuacaoPorId(veiculoId);
 
-        return autuacaoRepository.save(novaAutuacao);
+        return veiculo.adicionarAutuacao(novaAutuacao);
     }
 
 }

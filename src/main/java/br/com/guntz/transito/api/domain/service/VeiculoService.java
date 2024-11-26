@@ -1,5 +1,6 @@
 package br.com.guntz.transito.api.domain.service;
 
+import br.com.guntz.transito.api.domain.exception.RecursoNaoEncontradoException;
 import br.com.guntz.transito.api.domain.model.SituacaoVeiculo;
 import br.com.guntz.transito.api.domain.model.Veiculo;
 import br.com.guntz.transito.api.domain.repository.VeiculoRepository;
@@ -21,5 +22,24 @@ public class VeiculoService {
         veiculo.setDataCadastro(OffsetDateTime.now());
 
         return veiculoRepository.save(veiculo);
+    }
+
+    public Veiculo buscarVeiculoAutuacaoPorId(Long veiculoId) {
+        return veiculoRepository.findById(veiculoId)
+                .orElseThrow(RecursoNaoEncontradoException::new);
+    }
+
+    @Transactional
+    public void apreender(Long veiculoId) {
+        Veiculo veiculo = buscarVeiculoAutuacaoPorId(veiculoId);
+
+        veiculo.apreender();
+    }
+
+    @Transactional
+    public void removerApreensao(Long veiculoId) {
+        Veiculo veiculo = buscarVeiculoAutuacaoPorId(veiculoId);
+
+        veiculo.removerApreensao();
     }
 }

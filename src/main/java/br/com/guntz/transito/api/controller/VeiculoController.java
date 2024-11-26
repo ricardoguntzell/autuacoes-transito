@@ -51,4 +51,14 @@ public class VeiculoController {
 
         return new VeiculoResumoModel(veiculoSalvo, proprietario);
     }
+
+    @PutMapping("/{veiculoId}/apreensao")
+    public void apreender(@PathVariable Long veiculoId){
+        veiculoService.apreender(veiculoId);
+    }
+
+    @DeleteMapping("/{veiculoId}/apreensao")
+    public void removerApreensao(@PathVariable Long veiculoId){
+        veiculoService.removerApreensao(veiculoId);
+    }
 }
