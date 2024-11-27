@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "a02ccac4-a47c-48be-a1bd-79b771c359e6",
+		"name": "Veiculos",
+		"description": "Recurso de veículo.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6621980"
+	},
+	"item": [
+		{
+			"name": "Listar Todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_TRANSITO\n}}/api/veiculos",
+					"host": [
+						"{{URL_TRANSITO\n}}"
+					],
+					"path": [
+						"api",
+						"veiculos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_TRANSITO\n}}/api/veiculos/1",
+					"host": [
+						"{{URL_TRANSITO\n}}"
+					],
+					"path": [
+						"api",
+						"veiculos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Salvar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"proprietario\": {\r\n        \"id\":2\r\n    },\r\n    \"marca\": \"Ferrari\",\r\n    \"modelo\": \"XI\",\r\n    \"placa\": \"XPT7798\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_TRANSITO\n}}/api/veiculos",
+					"host": [
+						"{{URL_TRANSITO\n}}"
+					],
+					"path": [
+						"api",
+						"veiculos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Apreender",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{URL_TRANSITO\n}}/api/veiculos/3/apreensao",
+					"host": [
+						"{{URL_TRANSITO\n}}"
+					],
+					"path": [
+						"api",
+						"veiculos",
+						"3",
+						"apreensao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remover Apreensão",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL_TRANSITO\n}}/api/veiculos/3/apreensao",
+					"host": [
+						"{{URL_TRANSITO\n}}"
+					],
+					"path": [
+						"api",
+						"veiculos",
+						"3",
+						"apreensao"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

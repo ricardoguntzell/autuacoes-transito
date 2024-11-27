@@ -53,8 +53,15 @@ git clone https://github.com/ricardoguntzell/transito-api
 ./mvnw spring-boot:run
 ```
 
+# Testes
+
+- Foi disponibilizado na folder "/postman-collections" os payloads para testar
+- Nota: Lembre-se de alterar a URL para seu ambiente local(Ex: http://localhost:8080). Também vou deixar no ar o projeto em produção caso você queira testar a partir dele.
+  (https://transito-api-production.up.railway.app)
+
 # Autor
 
 Ricardo Guntzell
 
-www.linkedin.com/in/ricardoguntzelljr
+- www.linkedin.com/in/ricardoguntzelljr
+- https://github.com/ricardoguntzell

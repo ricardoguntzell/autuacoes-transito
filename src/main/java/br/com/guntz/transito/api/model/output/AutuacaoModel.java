@@ -8,6 +8,7 @@ import org.springframework.beans.BeanUtils;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -26,4 +27,5 @@ public class AutuacaoModel {
     public AutuacaoModel(Autuacao autuacao) {
         BeanUtils.copyProperties(autuacao, this);
     }
+
 }

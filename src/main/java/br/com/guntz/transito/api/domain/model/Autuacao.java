@@ -42,4 +42,5 @@ public class Autuacao {
     public Autuacao(AutuacaoInputModel autuacaoInputModel) {
         BeanUtils.copyProperties(autuacaoInputModel, this);
     }
+
 }

@@ -7,6 +7,8 @@ import br.com.guntz.transito.api.domain.repository.VeiculoRepository;
 import br.com.guntz.transito.api.domain.service.ProprietarioService;
 import br.com.guntz.transito.api.domain.service.VeiculoService;
 import br.com.guntz.transito.api.model.input.VeiculoInputModel;
+import br.com.guntz.transito.api.model.output.AutuacaoModel;
+import br.com.guntz.transito.api.model.output.VeiculoModel;
 import br.com.guntz.transito.api.model.output.VeiculoResumoModel;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -33,9 +35,9 @@ public class VeiculoController {
     }
 
     @GetMapping("/{veiculoId}")
-    public ResponseEntity<VeiculoResumoModel> buscarPorId(@PathVariable Long veiculoId) {
+    public ResponseEntity<VeiculoModel> buscarPorId(@PathVariable Long veiculoId) {
         return veiculoRepository.findById(veiculoId)
-                .map(v -> (new VeiculoResumoModel(v, v.getProprietario())))
+                .map(v -> (new VeiculoModel(v, v.getProprietario(), v.getAutuacoes())))
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -53,12 +55,12 @@ public class VeiculoController {
     }
 
     @PutMapping("/{veiculoId}/apreensao")
-    public void apreender(@PathVariable Long veiculoId){
+    public void apreender(@PathVariable Long veiculoId) {
         veiculoService.apreender(veiculoId);
     }
 
     @DeleteMapping("/{veiculoId}/apreensao")
-    public void removerApreensao(@PathVariable Long veiculoId){
+    public void removerApreensao(@PathVariable Long veiculoId) {
         veiculoService.removerApreensao(veiculoId);
     }
 }

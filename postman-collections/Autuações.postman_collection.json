@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "e2efe291-2a96-4981-a392-863bc4561aa1",
+		"name": "Autuações",
+		"description": "Recurso de Autuações de trânsito.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6621980"
+	},
+	"item": [
+		{
+			"name": "Listar Todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_TRANSITO\n}}/api/veiculos/1/autuacoes",
+					"host": [
+						"{{URL_TRANSITO\n}}"
+					],
+					"path": [
+						"api",
+						"veiculos",
+						"1",
+						"autuacoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Salvar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descricao\": \"Estacionar sobre ciclovia ou ciclofaixa\",\r\n    \"tipoMulta\": \"GRAVE\",\r\n    \"valorMulta\": 195.23\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_TRANSITO\n}}/api/veiculos/2/autuacoes",
+					"host": [
+						"{{URL_TRANSITO\n}}"
+					],
+					"path": [
+						"api",
+						"veiculos",
+						"2",
+						"autuacoes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
