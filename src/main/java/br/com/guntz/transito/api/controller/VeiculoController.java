@@ -10,6 +10,7 @@ import br.com.guntz.transito.api.model.input.VeiculoInputModel;
 import br.com.guntz.transito.api.model.output.AutuacaoModel;
 import br.com.guntz.transito.api.model.output.VeiculoModel;
 import br.com.guntz.transito.api.model.output.VeiculoResumoModel;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@SecurityRequirement(name = "bearer-key")
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/veiculos")
