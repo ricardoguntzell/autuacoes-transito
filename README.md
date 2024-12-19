@@ -55,6 +55,7 @@ git clone https://github.com/ricardoguntzell/transito-api
 
 # Testes
 
+- Link de documentação e uso da API: [Swagger-UI](http://localhost:8080/swagger-ui/index.html "Swagger-UI")
 - Foi disponibilizado na folder "/postman-collections" os payloads para testar
 - Nota: Lembre-se de alterar a URL para seu ambiente local(Ex: http://localhost:8080). Também vou deixar no ar o projeto em produção caso você queira testar a partir dele.
   (https://transito-api-production.up.railway.app)
